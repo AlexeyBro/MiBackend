@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.9.23"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    application
 }
 
 group = "ru.minimateka.mibackend"
@@ -21,6 +22,6 @@ kotlin {
     jvmToolchain(20)
 }
 
-tasks.jar {
-    manifest.attributes["Main-Class"] = "ru.minimateka.mibackend"
+application {
+    mainClass.set("ru.minimateka.mibackend.MainKt")
 }
