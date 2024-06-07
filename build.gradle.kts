@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "1.9.23"
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -24,4 +26,13 @@ kotlin {
 
 application {
     mainClass.set("ru.minimateka.mibackend.MainKt")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_18
+    targetCompatibility = JavaVersion.VERSION_18
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "18"
 }
