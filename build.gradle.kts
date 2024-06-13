@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.9.23"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.ktor.plugin") version "2.3.11"
     application
 }
 
@@ -13,13 +14,10 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
     jvmToolchain(20)
 }
@@ -35,4 +33,13 @@ java {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "18"
+}
+
+dependencies {
+    testImplementation(kotlin("test"))
+    implementation("io.ktor:ktor-server-call-logging")
+    implementation("io.ktor:ktor-server-core")
+    implementation("io.ktor:ktor-server-netty")
+    implementation("io.ktor:ktor-server-default-headers")
+    implementation("ch.qos.logback:logback-classic:1.4.12")
 }
