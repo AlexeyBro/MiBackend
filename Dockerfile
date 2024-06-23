@@ -1,4 +1,4 @@
-FROM gradle:8.5.0-jdk17-jammy as build
+FROM gradle:8.3.0-jdk17-jammy as build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN ./gradlew shadowjar
