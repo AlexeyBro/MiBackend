@@ -46,3 +46,9 @@ services:
     image: traefik/whoami
     labels:
       - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+
+  networks:
+    default:
+      driver: bridge
+      driver_opts:
+        com.docker.network.driver.mtu: 1450
