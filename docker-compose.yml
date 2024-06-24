@@ -3,10 +3,10 @@ services:
   mibackend:
     image: mibackend:0.0.1
     restart: always
-    ports:
-      - "8080:8080"
     labels:
       traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
+      traefik.http.routers.mibackend.services: "mibackend"
+      traefik.http.routers.mibackend.entryPoints: "web"
       traefik.http.services.mibackend.loadbalancer.server.port: 8080
 
   mongo:
