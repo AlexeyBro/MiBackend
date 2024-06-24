@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.10'
 
 services:
 
@@ -6,11 +6,11 @@ services:
     image: mibackend:0.0.1
     restart: always
     labels:
-      traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
-      traefik.http.routers.mibackend.services: "mibackend"
-      traefik.http.routers.mibackend.entryPoints: "web"
-      traefik.http.services.mibackend.loadbalancer.server.port: 8082
       traefik.enable: true
+      traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
+      traefik.http.routers.mibackend.entrypoints: "web"
+      traefik.http.routers.mibackend.service: "mibackend"
+      traefik.http.services.mibackend.loadbalancer.server.port: 8082
 
   mongo:
     image: mongo
