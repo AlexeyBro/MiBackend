@@ -38,6 +38,9 @@ services:
       - target: 443
         published: 443
         mode: host
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
     volumes:
       - ./config/traefik.yaml:/etc/traefik/traefik.yaml
       - /var/run/docker.sock:/var/run/docker.sock
@@ -45,10 +48,6 @@ services:
   whoami:
     image: traefik/whoami
     labels:
+      - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
-
-  networks:
-    default:
-      driver: bridge
-      driver_opts:
-        com.docker.network.driver.mtu: 1450
+      - "traefik.http.routers.whoami.entrypoints=web"
