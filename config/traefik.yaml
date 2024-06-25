@@ -24,6 +24,6 @@ certificatesResolvers:
   myresolver:
     acme:
       email: alex.control@mail.ru
-      storage: ./letsencrypt/acme.json
+      storage: /letsencrypt/acme.json
       httpchallenge:
         entryPoint: web
