@@ -20,10 +20,10 @@ entryPoints:
   websecure:
     address: ":443"
 
-#certificatesResolvers:
-#  #TODO:
-#    acme:
-#      email: #TODO
-#      storage: #TODO
-#      httpchallenge:
-#        entryPoint: web
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: alex.control@mail.ru
+      storage: /letsencrypt/acme.json
+      httpchallenge:
+        entryPoint: web
