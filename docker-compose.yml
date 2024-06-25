@@ -35,7 +35,6 @@ services:
   proxy:
     image: traefik:v3.0
     ports:
-      - "8080:8080"
       - target: 80
         published: 80
         mode: host
