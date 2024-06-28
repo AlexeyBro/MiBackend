@@ -5,6 +5,8 @@ services:
   mibackend:
     image: mibackend:0.0.1
     restart: always
+    ports:
+      - "8082:8082"
     labels:
       traefik.enable: true
       # traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
@@ -48,11 +50,3 @@ services:
       - ./letsencrypt:/letsencrypt
       - ./config/traefik.yaml:/etc/traefik/traefik.yaml
       - /var/run/docker.sock:/var/run/docker.sock
-
-  # whoami:
-  #   image: traefik/whoami
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.routers.whoami.rule=Host(`minimateka.ru`)"
-  #     - "traefik.http.routers.whoami.entrypoints=websecure"
-  #     - "traefik.http.routers.whoami.tls.certresolver=myresolver"
