@@ -27,4 +27,4 @@ certificatesResolvers:
       storage: /letsencrypt/acme.json
       # caserver: https://acme-staging-v02.api.letsencrypt.org/directory
       httpchallenge:
-        entryPoint: web
+        entryPoint: websecure
