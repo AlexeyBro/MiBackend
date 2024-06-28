@@ -7,7 +7,7 @@ services:
     restart: always
     labels:
       traefik.enable: true
-      traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
+      # traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
       # traefik.http.routers.mibackend.entrypoints: "web"
       traefik.http.routers.mibackend.entrypoints: "websecure"
       traefik.http.routers.mibackend.rule: "Host(`minimateka.ru`)"
