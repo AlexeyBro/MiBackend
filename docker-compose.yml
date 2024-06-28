@@ -11,6 +11,7 @@ services:
       # traefik.http.routers.mibackend.entrypoints: "web"
       traefik.http.routers.mibackend.entrypoints: "websecure"
       traefik.http.routers.mibackend.rule: "Host(`minimateka.ru`)"
+      traefik.http.routers.mibackend.tls.certresolver: "myresolver"
       traefik.http.routers.mibackend.service: "mibackend"
       traefik.http.services.mibackend.loadbalancer.server.port: 8082
 
