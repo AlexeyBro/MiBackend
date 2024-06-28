@@ -10,7 +10,7 @@ services:
       traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
       traefik.http.routers.mibackend.entrypoints: "web"
       traefik.http.routers.mibackend.service: "mibackend"
-      traefik.http.services.mibackend.loadbalancer.server.port: 8082
+      traefik.http.services.mibackend.loadbalancer.server.port: 8080
 
   mongo:
     image: mongo
