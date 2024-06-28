@@ -15,8 +15,6 @@ providers:
     watch: true
 
 entryPoints:
- - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
- - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
   web:
     address: ":80"
   websecure:
