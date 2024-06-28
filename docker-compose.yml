@@ -46,6 +46,9 @@ services:
       - target: 443
         published: 443
         mode: host
+    command:
+      - --entryPoints.web.http.redirections.entryPoint.to=websecure
+      - --entryPoints.web.http.redirections.entryPoint.scheme=https
     volumes:
       - ./letsencrypt:/letsencrypt
       - ./config/traefik.yaml:/etc/traefik/traefik.yaml
