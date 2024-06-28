@@ -25,6 +25,6 @@ certificatesResolvers:
     acme:
       email: alex.control@mail.ru
       storage: /letsencrypt/acme.json
-      caserver: https://acme-staging-v02.api.letsencrypt.org/directory
+      # caserver: https://acme-staging-v02.api.letsencrypt.org/directory
       httpchallenge:
         entryPoint: web
