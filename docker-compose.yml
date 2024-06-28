@@ -9,12 +9,12 @@ services:
       - "8082:8082"
     labels:
       traefik.enable: true
-      # traefik.http.routers.mibackend.rule: "PathPrefix(`/`)"
-      # traefik.http.routers.mibackend.entrypoints: "web"
       traefik.http.routers.mibackend.entrypoints: "websecure"
       traefik.http.routers.mibackend.rule: "Host(`minimateka.ru`)"
       traefik.http.routers.mibackend.tls.certresolver: "myresolver"
       traefik.http.routers.mibackend.service: "mibackend"
+      traefik.http.routers.mibackend.middlewares: "mibackend-https"
+      traefik.http.middlewares.mibackend-https.redirectscheme.scheme: "https"
       traefik.http.services.mibackend.loadbalancer.server.port: 8082
 
   mongo:
